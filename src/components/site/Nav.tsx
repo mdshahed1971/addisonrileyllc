@@ -35,14 +35,16 @@ export function Nav() {
           paddingBottom: solid ? 14 : 26,
         }}
         transition={{ duration: 0.5, ease: [0.22, 0.9, 0.24, 1] }}
-        className="border-b backdrop-blur-md"
+        className={`border-b backdrop-blur-md transition-colors duration-500 ${
+          solid ? "text-foreground" : "text-stone-soft"
+        }`}
       >
         <div className="mx-auto flex max-w-[100rem] items-center justify-between px-6 md:px-12">
           <a href="#top" className="group">
-            <span className="display-xl block text-sm text-foreground md:text-base">
+            <span className="display-xl block text-sm md:text-base">
               Addison Riley, LLC
             </span>
-            <span className="eyebrow mt-1 block text-[9px] md:text-[10px]">
+            <span className={`eyebrow mt-1 block text-[9px] md:text-[10px] ${solid ? "" : "text-stone-soft/60"}`}>
               Forensics • Appraisal • Construction
             </span>
           </a>
@@ -52,14 +54,14 @@ export function Nav() {
               <a
                 key={l.href}
                 href={l.href}
-                className="relative text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+                className={`relative text-xs uppercase tracking-[0.2em] transition-colors ${solid ? "text-muted-foreground hover:text-foreground" : "text-stone-soft/70 hover:text-stone-soft"}`}
               >
                 {l.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="border border-foreground px-5 py-2.5 text-[10px] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+              className={`border px-5 py-2.5 text-[10px] uppercase tracking-[0.22em] transition-colors duration-300 ${solid ? "border-foreground hover:bg-foreground hover:text-background" : "border-stone-soft/40 hover:bg-stone-soft hover:text-graphite"}`}
             >
               Request a Consultation
             </a>
@@ -72,8 +74,8 @@ export function Nav() {
             aria-label="Toggle navigation menu"
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
           >
-            <span className="h-px w-6 bg-foreground" />
-            <span className="h-px w-6 bg-foreground" />
+            <span className="h-px w-6 bg-current" />
+            <span className="h-px w-6 bg-current" />
           </button>
         </div>
 
